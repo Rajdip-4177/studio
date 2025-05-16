@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'documents.iplt20.com',
+        port: '',
+        pathname: '/ipl/**',
+      },
     ],
   },
 };
