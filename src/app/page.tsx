@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { List, TableIcon } from 'lucide-react';
 import { teamsData } from '@/data/ipl-teams';
@@ -9,6 +9,12 @@ import { TeamCardListComponent } from '@/components/ipl/team-card-list';
 
 export default function IplStatsPage() {
   const [viewMode, setViewMode] = useState<'table' | 'card'>('table');
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    // This will only run on the client, after initial hydration
+    setCurrentYear(new Date().getFullYear());
+  }, []); // Empty dependency array ensures this runs once on mount
 
   const toggleViewMode = () => {
     setViewMode(prevMode => (prevMode === 'table' ? 'card' : 'table'));
@@ -58,7 +64,7 @@ export default function IplStatsPage() {
 
       <footer className="text-center mt-16 md:mt-24 py-8 border-t border-border/70">
         <p className="text-sm text-muted-foreground">
-          IPL Stats Hub &copy; {new Date().getFullYear()}. All data is for illustrative and analytical purposes only.
+          IPL Stats Hub &copy; {currentYear !== null ? currentYear : ''}. All data is for illustrative and analytical purposes only.
         </p>
          <p className="text-xs text-muted-foreground/70 mt-1">
           Team logos are trademarks of their respective IPL franchises.
