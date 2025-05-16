@@ -8,17 +8,43 @@ interface TeamCardProps {
   team: TeamStats;
 }
 
-const formatIncome = (income: number) => {
-  return typeof income === 'number' ? `₹${income.toLocaleString('en-IN')}` : 'N/A';
+const formatIncome = (income: number | undefined | null) => {
+  return (income !== undefined && income !== null && typeof income === 'number' && !isNaN(income))
+    ? `₹${income.toLocaleString('en-IN')}`
+    : 'N/A';
 };
 
 export function TeamCardComponent({ team }: TeamCardProps) {
   const statsDetails = [
-    { label: "Life Expectancy", value: typeof team.lifeExpectancy === 'number' ? `${team.lifeExpectancy.toFixed(1)} years` : 'N/A' },
-    { label: "Infant Mortality Rate", value: typeof team.infantMortalityRate === 'number' ? `${team.infantMortalityRate} per 1k births` : 'N/A' },
-    { label: "Literacy Rate", value: typeof team.literacyRate === 'number' ? `${team.literacyRate.toFixed(1)}%` : 'N/A' },
-    { label: "Attendance Ratio", value: typeof team.attendanceRatio === 'number' ? `${team.attendanceRatio.toFixed(1)}%` : 'N/A' },
-    { label: "Per Capita Income", value: formatIncome(team.perCapitaIncome), important: true },
+    { 
+      label: "Life Expectancy", 
+      value: (team.lifeExpectancy !== undefined && team.lifeExpectancy !== null && typeof team.lifeExpectancy === 'number' && !isNaN(team.lifeExpectancy)) 
+        ? `${team.lifeExpectancy.toFixed(1)} years` 
+        : 'N/A' 
+    },
+    { 
+      label: "Infant Mortality Rate", 
+      value: (team.infantMortalityRate !== undefined && team.infantMortalityRate !== null && typeof team.infantMortalityRate === 'number' && !isNaN(team.infantMortalityRate)) 
+        ? `${team.infantMortalityRate} per 1k births` 
+        : 'N/A' 
+    },
+    { 
+      label: "Literacy Rate", 
+      value: (team.literacyRate !== undefined && team.literacyRate !== null && typeof team.literacyRate === 'number' && !isNaN(team.literacyRate)) 
+        ? `${team.literacyRate.toFixed(1)}%` 
+        : 'N/A' 
+    },
+    { 
+      label: "Attendance Ratio", 
+      value: (team.attendanceRatio !== undefined && team.attendanceRatio !== null && typeof team.attendanceRatio === 'number' && !isNaN(team.attendanceRatio))
+        ? `${team.attendanceRatio.toFixed(1)}%` 
+        : 'N/A' 
+    },
+    { 
+      label: "Per Capita Income", 
+      value: formatIncome(team.perCapitaIncome), 
+      important: true 
+    },
   ];
 
   return (

@@ -7,8 +7,10 @@ interface TeamTableProps {
   data: TeamStats[];
 }
 
-const formatIncome = (income: number) => {
-  return typeof income === 'number' ? `₹${income.toLocaleString('en-IN')}` : 'N/A';
+const formatIncome = (income: number | undefined | null) => {
+  return (income !== undefined && income !== null && typeof income === 'number' && !isNaN(income))
+    ? `₹${income.toLocaleString('en-IN')}`
+    : 'N/A';
 };
 
 export function TeamTableComponent({ data }: TeamTableProps) {
@@ -50,16 +52,24 @@ export function TeamTableComponent({ data }: TeamTableProps) {
               <TableCell className="whitespace-nowrap px-4 py-3 text-foreground/90">{team.city}</TableCell>
               <TableCell className="whitespace-nowrap px-4 py-3 text-foreground/90">{team.state}</TableCell>
               <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">
-                {typeof team.lifeExpectancy === 'number' ? team.lifeExpectancy.toFixed(1) : 'N/A'}
+                {(team.lifeExpectancy !== undefined && team.lifeExpectancy !== null && typeof team.lifeExpectancy === 'number' && !isNaN(team.lifeExpectancy))
+                  ? team.lifeExpectancy.toFixed(1)
+                  : 'N/A'}
               </TableCell>
               <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">
-                {typeof team.infantMortalityRate === 'number' ? team.infantMortalityRate : 'N/A'}
+                {(team.infantMortalityRate !== undefined && team.infantMortalityRate !== null && typeof team.infantMortalityRate === 'number' && !isNaN(team.infantMortalityRate))
+                  ? team.infantMortalityRate
+                  : 'N/A'}
               </TableCell>
               <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">
-                {typeof team.literacyRate === 'number' ? team.literacyRate.toFixed(1) + '%' : 'N/A'}
+                {(team.literacyRate !== undefined && team.literacyRate !== null && typeof team.literacyRate === 'number' && !isNaN(team.literacyRate))
+                  ? team.literacyRate.toFixed(1) + '%'
+                  : 'N/A'}
               </TableCell>
               <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">
-                {typeof team.attendanceRatio === 'number' ? team.attendanceRatio.toFixed(1) + '%' : 'N/A'}
+                {(team.attendanceRatio !== undefined && team.attendanceRatio !== null && typeof team.attendanceRatio === 'number' && !isNaN(team.attendanceRatio))
+                  ? team.attendanceRatio.toFixed(1) + '%'
+                  : 'N/A'}
               </TableCell>
               <TableCell className="text-right whitespace-nowrap px-4 py-3 font-medium text-foreground/90">{formatIncome(team.perCapitaIncome)}</TableCell>
             </TableRow>
