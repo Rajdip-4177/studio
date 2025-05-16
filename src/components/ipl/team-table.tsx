@@ -8,7 +8,7 @@ interface TeamTableProps {
 }
 
 const formatIncome = (income: number) => {
-  return `₹${income.toLocaleString('en-IN')}`;
+  return typeof income === 'number' ? `₹${income.toLocaleString('en-IN')}` : 'N/A';
 };
 
 export function TeamTableComponent({ data }: TeamTableProps) {
@@ -49,10 +49,18 @@ export function TeamTableComponent({ data }: TeamTableProps) {
               </TableCell>
               <TableCell className="whitespace-nowrap px-4 py-3 text-foreground/90">{team.city}</TableCell>
               <TableCell className="whitespace-nowrap px-4 py-3 text-foreground/90">{team.state}</TableCell>
-              <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">{team.lifeExpectancy.toFixed(1)}</TableCell>
-              <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">{team.infantMortalityRate}</TableCell>
-              <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">{team.literacyRate.toFixed(1)}%</TableCell>
-              <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">{team.attendanceRatio.toFixed(1)}%</TableCell>
+              <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">
+                {typeof team.lifeExpectancy === 'number' ? team.lifeExpectancy.toFixed(1) : 'N/A'}
+              </TableCell>
+              <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">
+                {typeof team.infantMortalityRate === 'number' ? team.infantMortalityRate : 'N/A'}
+              </TableCell>
+              <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">
+                {typeof team.literacyRate === 'number' ? team.literacyRate.toFixed(1) + '%' : 'N/A'}
+              </TableCell>
+              <TableCell className="text-right whitespace-nowrap px-4 py-3 text-foreground/90">
+                {typeof team.attendanceRatio === 'number' ? team.attendanceRatio.toFixed(1) + '%' : 'N/A'}
+              </TableCell>
               <TableCell className="text-right whitespace-nowrap px-4 py-3 font-medium text-foreground/90">{formatIncome(team.perCapitaIncome)}</TableCell>
             </TableRow>
           ))}

@@ -9,15 +9,15 @@ interface TeamCardProps {
 }
 
 const formatIncome = (income: number) => {
-  return `₹${income.toLocaleString('en-IN')}`;
+  return typeof income === 'number' ? `₹${income.toLocaleString('en-IN')}` : 'N/A';
 };
 
 export function TeamCardComponent({ team }: TeamCardProps) {
   const statsDetails = [
-    { label: "Life Expectancy", value: `${team.lifeExpectancy.toFixed(1)} years` },
-    { label: "Infant Mortality Rate", value: `${team.infantMortalityRate} per 1k births` },
-    { label: "Literacy Rate", value: `${team.literacyRate.toFixed(1)}%` },
-    { label: "Attendance Ratio", value: `${team.attendanceRatio.toFixed(1)}%` },
+    { label: "Life Expectancy", value: typeof team.lifeExpectancy === 'number' ? `${team.lifeExpectancy.toFixed(1)} years` : 'N/A' },
+    { label: "Infant Mortality Rate", value: typeof team.infantMortalityRate === 'number' ? `${team.infantMortalityRate} per 1k births` : 'N/A' },
+    { label: "Literacy Rate", value: typeof team.literacyRate === 'number' ? `${team.literacyRate.toFixed(1)}%` : 'N/A' },
+    { label: "Attendance Ratio", value: typeof team.attendanceRatio === 'number' ? `${team.attendanceRatio.toFixed(1)}%` : 'N/A' },
     { label: "Per Capita Income", value: formatIncome(team.perCapitaIncome), important: true },
   ];
 
