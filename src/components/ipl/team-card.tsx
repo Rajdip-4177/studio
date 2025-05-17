@@ -1,8 +1,9 @@
+
 import type { TeamStats } from '@/data/ipl-teams';
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import React from 'react'; // Import React for React.Fragment
+import React from 'react'; 
 
 interface TeamCardProps {
   team: TeamStats;
