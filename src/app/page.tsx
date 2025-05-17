@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -26,6 +27,9 @@ export default function IplStatsPage() {
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight drop-shadow-md">
           IPL Teams Socio-Economic Analysis
         </h1>
+        <p className="mt-2 text-md sm:text-lg text-foreground/70">
+          by Rajdip
+        </p>
         <p className="mt-4 text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
           Explore key socio-economic indicators associated with the regions of Indian Premier League teams.
         </p>
