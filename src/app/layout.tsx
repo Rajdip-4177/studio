@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body 
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full bg-gradient-to-br from-background to-[hsl(var(--primary)/0.1)] text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full bg-gradient-to-br from-background via-primary/10 to-secondary/15 text-foreground`}
       >
         {children}
         <Toaster />

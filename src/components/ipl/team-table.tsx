@@ -25,7 +25,7 @@ export function TeamTableComponent({ data }: TeamTableProps) {
         <TableHeader className="sticky top-0 bg-card z-10 shadow-sm">
           <TableRow>
             {headers.map(header => (
-              <TableHead key={header} className="font-semibold text-foreground whitespace-nowrap px-4 py-3 text-sm">
+              <TableHead key={header} className="font-semibold text-primary whitespace-nowrap px-4 py-3 text-sm">
                 {header}
               </TableHead>
             ))}

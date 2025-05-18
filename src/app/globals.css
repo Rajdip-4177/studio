@@ -32,7 +32,7 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Increased from 0.5rem */
 
     /* Sidebar specific colors - adjust if sidebar is used, otherwise defaults are fine */
     --sidebar-background: 240 5% 96%; /* Default light gray, or match page bg */
@@ -95,7 +95,7 @@ body {
 
 /* For smooth view transitions */
 .animate-fadeIn {
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out forwards; /* Added forwards */
 }
 
 @keyframes fadeIn {

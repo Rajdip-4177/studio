@@ -24,13 +24,18 @@ export default function IplStatsPage() {
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-12 selection:bg-primary/20 selection:text-primary">
       <header className="text-center mb-10 md:mb-16">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight drop-shadow-md">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight drop-shadow-lg animate-fadeIn">
           IPL Teams Socio-Economic Analysis
         </h1>
-        <p className="mt-2 text-md sm:text-lg text-foreground/70">
+        <p 
+          className="mt-2 text-md sm:text-lg text-foreground/70 animate-fadeIn" 
+          style={{ animationDelay: '0.1s', opacity: 0 }} // Initial opacity for animation
+        >
           by Rajdip
         </p>
-        <p className="mt-4 text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
+        <p className="mt-4 text-lg md:text-xl text-foreground/80 max-w-4xl mx-auto leading-relaxed animate-fadeIn"
+           style={{ animationDelay: '0.2s', opacity: 0 }} // Initial opacity for animation
+        >
           Explore key socio-economic indicators associated with the regions of Indian Premier League teams.
         </p>
       </header>
@@ -41,7 +46,7 @@ export default function IplStatsPage() {
             onClick={toggleViewMode} 
             variant="outline" 
             size="lg"
-            className="shadow-lg bg-card hover:bg-accent hover:text-accent-foreground focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 ease-in-out group"
+            className="shadow-lg bg-card hover:bg-accent hover:text-accent-foreground focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 ease-in-out group hover:scale-105 focus:scale-105"
             aria-label={`Switch to ${viewMode === 'table' ? 'Card View' : 'Table View'}`}
             aria-pressed={viewMode === 'card'}
           >
@@ -66,7 +71,7 @@ export default function IplStatsPage() {
         </div>
       </main>
 
-      <footer className="text-center mt-16 md:mt-24 py-8 border-t border-border/70">
+      <footer className="text-center mt-20 md:mt-28 py-8 border-t border-border/70">
         <p className="text-sm text-muted-foreground">
           IPL Stats Hub &copy; {currentYear !== null ? currentYear : ''}. All data is for illustrative and analytical purposes only.
         </p>

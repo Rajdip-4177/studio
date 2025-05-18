@@ -50,7 +50,7 @@ export function TeamCardComponent({ team }: TeamCardProps) {
 
   return (
     <Card className="w-full shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out bg-card flex flex-col rounded-lg overflow-hidden">
-      <CardHeader className="flex flex-row items-center space-x-4 p-5 bg-primary/5 border-b border-border">
+      <CardHeader className="flex flex-row items-center space-x-4 p-5 bg-primary/10 border-b border-border">
         <Image 
           src={team.logoUrl} 
           alt={`${team.name} logo`} 
@@ -73,7 +73,7 @@ export function TeamCardComponent({ team }: TeamCardProps) {
                 {stat.value}
               </span>
             </div>
-            {index < statsDetails.length - 1 && <Separator className="my-2 bg-border/50" />}
+            {index < statsDetails.length - 1 && <Separator className="my-2 bg-border/60" />}
           </React.Fragment>
         ))}
       </CardContent>
