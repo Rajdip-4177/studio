@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google'; // Using Geist as specified in original layout
+// Removed Geist font imports, will rely on system fonts defined in globals.css
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+// If you have specific IPL-themed fonts to use, they can be imported here
+// e.g. import { SomeSportyFont } from 'next/font/google';
+// const sportyFont = SomeSportyFont({ subsets: ['latin'], variable: '--font-sporty' });
 
 export const metadata: Metadata = {
   title: 'IPL Stats Hub',
@@ -27,7 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body 
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full bg-gradient-to-br from-background via-primary/10 to-secondary/15 text-foreground`}
+        // className={`${sportyFont.variable} antialiased h-full bg-background text-foreground`} // Example if using a custom font
+        className={`antialiased h-full bg-background text-foreground`}
       >
         {children}
         <Toaster />

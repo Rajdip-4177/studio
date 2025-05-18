@@ -16,16 +16,16 @@ const formatIncome = (income: number | undefined | null) => {
 
 export function TeamTableComponent({ data }: TeamTableProps) {
   const headers = [
-    "Team", "City", "State", "Life Expectancy (Years)", "Infant Mortality Rate (per 1k births)", "Literacy Rate (%)", "Attendance Ratio (%)", "Per Capita Income (₹)"
+    "Team", "City", "State", "Life Expectancy (Years)", "Infant Mortality (per 1k)", "Literacy Rate (%)", "Attendance Ratio (%)", "Per Capita Income (₹)"
   ];
 
   return (
-    <ScrollArea className="rounded-lg border shadow-xl bg-card w-full">
+    <ScrollArea className="rounded-xl border shadow-lg bg-card w-full">
       <Table className="min-w-full">
         <TableHeader className="sticky top-0 bg-card z-10 shadow-sm">
-          <TableRow>
+          <TableRow className="border-b-border/80">
             {headers.map(header => (
-              <TableHead key={header} className="font-semibold text-primary whitespace-nowrap px-4 py-3 text-sm">
+              <TableHead key={header} className="font-bold text-primary whitespace-nowrap px-4 py-4 text-sm uppercase tracking-wider">
                 {header}
               </TableHead>
             ))}
@@ -35,19 +35,19 @@ export function TeamTableComponent({ data }: TeamTableProps) {
           {data.map((team, index) => (
             <TableRow 
               key={team.id} 
-              className={index % 2 === 0 ? 'bg-background/50 hover:bg-muted/60' : 'bg-card hover:bg-muted/60 transition-colors duration-150'}
+              className={index % 2 === 0 ? 'bg-muted/30 hover:bg-muted/50' : 'bg-card hover:bg-muted/50 transition-colors duration-150 ease-in-out'}
             >
               <TableCell className="whitespace-nowrap px-4 py-3">
                 <div className="flex items-center space-x-3">
                   <Image 
                     src={team.logoUrl} 
                     alt={`${team.name} logo`} 
-                    width={32} 
-                    height={32} 
-                    className="rounded-full object-contain aspect-square" 
-                    unoptimized // IPL Logos are SVGs or PNGs optimized, unoptimized might be better
+                    width={36} 
+                    height={36} 
+                    className="rounded-full object-contain aspect-square border border-border/50" 
+                    unoptimized
                   />
-                  <span className="font-medium text-foreground">{team.name}</span>
+                  <span className="font-semibold text-foreground text-base">{team.name}</span>
                 </div>
               </TableCell>
               <TableCell className="whitespace-nowrap px-4 py-3 text-foreground/90">{team.city}</TableCell>
@@ -72,7 +72,7 @@ export function TeamTableComponent({ data }: TeamTableProps) {
                   ? team.attendanceRatio.toFixed(1) + '%'
                   : 'N/A'}
               </TableCell>
-              <TableCell className="text-right whitespace-nowrap px-4 py-3 font-medium text-foreground/90">{formatIncome(team.perCapitaIncome)}</TableCell>
+              <TableCell className="text-right whitespace-nowrap px-4 py-3 font-semibold text-accent">{formatIncome(team.perCapitaIncome)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
