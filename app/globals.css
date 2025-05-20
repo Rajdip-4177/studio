@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@layer base {
+  :root {
+    /* IPL Orange/Peach/Red Theme - Light Mode */
+    --background: 34 78% 91%; /* Light Peach #FAEBD7 */
+    --foreground: 18 20% 24%; /* Dark Brown #4A3B31 */
+    
+    --card: 25 100% 97%; /* Seashell #FFF5EE (Lighter than background) */
+    --card-foreground: 18 20% 24%; /* Dark Brown */
+    
+    --popover: 25 100% 97%; /* Seashell */
+    --popover-foreground: 18 20% 24%; /* Dark Brown */
+    
+    --primary: 16 100% 66%; /* Vibrant Orange #FF7F50 */
+    --primary-foreground: 0 0% 100%; /* White (for contrast on Orange) */
+    
+    --secondary: 17 100% 74%; /* Light Salmon #FFA07A (Lighter Orange) */
+    --secondary-foreground: 18 20% 24%; /* Dark Brown */
+    
+    --muted: 34 78% 95%; /* Lighter Peach (lighter than background) */
+    --muted-foreground: 18 20% 35%; /* Slightly Lighter Dark Brown */
+    
+    --accent: 0 51% 58%; /* Muted Red #CD5C5C */
+    --accent-foreground: 0 0% 100%; /* White (for contrast on Muted Red) */
+    
+    --destructive: 0 84.2% 60.2%; /* Standard red */
+    --destructive-foreground: 0 0% 98%; /* Cream White */
+    
+    --border: 34 50% 80%; /* Desaturated Peach for borders */
+    --input: 34 70% 93%; /* Light Peach for input backgrounds */
+    --ring: 16 100% 66%; /* Vibrant Orange for rings */
+
+    --radius: 0.75rem; /* From previous beautification step */
+
+    /* Chart colors */
+    --chart-1: 16 100% 66%;  /* Primary - Vibrant Orange */
+    --chart-2: 0 51% 58%;    /* Accent - Muted Red */
+    --chart-3: 17 100% 74%;  /* Secondary - Light Salmon */
+    --chart-4: 120 60% 50%;  /* A complementary Green */
+    --chart-5: 210 14% 70%;  /* Neutral Grey/Blue */
+
+    /* Sidebar specific colors */
+    --sidebar-background: 34 78% 95%; /* Lighter Peach (same as muted) */
+    --sidebar-foreground: 18 20% 24%; /* Dark Brown */
+    --sidebar-primary: 16 100% 66%; /* Vibrant Orange */
+    --sidebar-primary-foreground: 0 0% 100%; /* White */
+    --sidebar-accent: 0 51% 58%; /* Muted Red */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 34 50% 80%; /* Desaturated Peach */
+    --sidebar-ring: 16 100% 66%; /* Vibrant Orange */
+  }
+
+  .dark {
+    /* IPL Orange/Peach/Red Theme - Dark Mode */
+    --background: 13 20% 14%; /* Darkest Brown/Grey #2A201D */
+    --foreground: 34 78% 91%; /* Light Peach #FAEBD7 (for text) */
+    
+    --card: 14 18% 19%; /* Slightly Lighter Dark Brown #3A2D28 */
+    --card-foreground: 34 78% 91%; /* Light Peach */
+    
+    --popover: 14 18% 19%; 
+    --popover-foreground: 34 78% 91%;
+    
+    --primary: 16 100% 66%; /* Vibrant Orange #FF7F50 */
+    --primary-foreground: 13 20% 10%; /* Very Dark Brown/Black (for text on orange) */
+    
+    --secondary: 17 100% 70%; /* Adjusted Light Salmon for dark mode */
+    --secondary-foreground: 13 20% 10%; /* Very Dark Brown/Black */
+    
+    --muted: 13 20% 20%; /* Darker Muted background */
+    --muted-foreground: 34 70% 75%; /* Lighter Peach for muted text */
+    
+    --accent: 0 51% 62%; /* Slightly brighter Muted Red #D87070 */
+    --accent-foreground: 13 20% 10%; /* Very Dark Brown/Black */
+    
+    --destructive: 0 70% 55%; /* Adjusted red for dark mode */
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 13 20% 25%; /* Darker Border */
+    --input: 13 20% 22%; /* Darker Input */
+    --ring: 16 100% 60%; /* Adjusted Orange for rings */
+    
+    /* Chart colors for dark mode */
+    --chart-1: 16 100% 66%;
+    --chart-2: 0 51% 62%;
+    --chart-3: 17 100% 70%;
+    --chart-4: 120 60% 55%; /* Brighter Green */
+    --chart-5: 210 14% 65%; /* Brighter Grey/Blue */
+
+    /* Sidebar specific colors - Dark Mode */
+    --sidebar-background: 13 20% 16%; /* Darker than main bg */
+    --sidebar-foreground: 34 78% 91%; /* Light Peach */
+    --sidebar-primary: 16 100% 66%; /* Vibrant Orange */
+    --sidebar-primary-foreground: 13 20% 10%; /* Very Dark Brown/Black */
+    --sidebar-accent: 0 51% 62%; /* Slightly brighter Muted Red */
+    --sidebar-accent-foreground: 13 20% 10%; /* Very Dark Brown/Black */
+    --sidebar-border: 13 20% 25%; /* Darker Border */
+    --sidebar-ring: 16 100% 60%; /* Adjusted Orange */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* For smooth view transitions */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
